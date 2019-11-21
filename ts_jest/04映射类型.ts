@@ -9,3 +9,7 @@ type L = {
 type Diff<T, U> = T extends U ? never : T
 
 type T3 = Diff<'a' | 'b' | 'c', 'a'|'c'>
+
+window.onkeydown = function(e){
+    console.log(e);
+}

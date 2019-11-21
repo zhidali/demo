@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-size@1"></script>
+</head>
+
+<body>
+    <div id="results">
+
+    </div>
+    <script>
+        const resultsElm = document.getElementById("results");
+        // Area
+        canvasSize.maxArea({
+            max: 16384,
+            min: 1,
+            // step: 1024,
+            onError(width, height) {
+                console.info(`<canvas> area fail @ ${width} x ${height}`);
+            },
+            onSuccess(width, height) {
+                resultsElm.innerHTML += `<pre>Maximum area  : ${width} x ${height}</pre>`;
+            }
+        });
+        // Height
+        canvasSize.maxHeight({
+            onError(width, height) {
+                console.info(`<canvas> height fail @ ${width} x ${height}`);
+            },
+            onSuccess(width, height) {
+                resultsElm.innerHTML += `<pre>Maximum height: ${width} x ${height}</pre>`;
+            }
+        });
+
+        // Width
+        canvasSize.maxWidth({
+            onError(width, height) {
+                console.info(`<canvas> width fail @ ${width} x ${height}`);
+            },
+            onSuccess(width, height) {
+                resultsElm.innerHTML += `<pre>Maximum width : ${width} x ${height}</pre>`;
+            }
+        })
+
+        // Single dimension
+        var result = canvasSize.test({
+            height: 16384,
+            width: 16384
+        });
+
+        // Multiple dimensions
+        canvasSize.test({
+            sizes: [
+                [32768, 32768],
+                [16384, 16384],
+                [8192, 8192],
+                [4096, 4096]
+            ],
+            onError: function (width, height) {
+                // 1: 16384,16384
+                // 2: 8192,8192
+                console.log('Error:', width, height);
+            },
+            onSuccess: function (width, height) {
+                // 3: 4096,4096
+                console.log('Success:', width, height);
+            }
+        });
+    </script>
+</body>
+
+</html>

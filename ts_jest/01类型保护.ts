@@ -53,3 +53,19 @@ function tp(type: Type) {
 }
 
 // let obj = tp(Type.Js);
+
+
+
+interface X{
+    a:any,
+    b:any
+}
+interface Y{
+    a:any,
+    b:any,
+    c:any
+}
+let x: X;
+let y: Y;
+
+type hand = (a:number,n:number) => number

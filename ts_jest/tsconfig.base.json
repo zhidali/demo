@@ -1,0 +1,20 @@
+{
+  // 单独编译ts
+  "files": [
+    "./src/a.ts"
+  ],
+  "include": [
+    // 编译src下的所有目录 包括子目录
+    // "src",
+    // 只是编译src的子目录
+    "src/*",
+  ],
+  // 排除编译的目录
+  "exclude": [
+    "src/lib"
+  ],
+  // 合并json文件
+  // "extends": "",
+  // 保存的时候自动编译
+  // "compileOnSave": true,
+}

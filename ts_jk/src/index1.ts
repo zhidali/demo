@@ -38,3 +38,12 @@ lib = function(x){
 }
 
 
+
+type A1 = 'd' | 'e'
+type AA<T> = {
+	a: string,
+	b: number,
+	c: boolean
+}[T extends A1 ? 'a' : 'b']
+
+let a1:AA<'d'>

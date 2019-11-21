@@ -1,21 +1,41 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h3>Installed CLI Plugins</h3>
+    <p v-show="show">
+       通过show控制显示隐藏
+    </p>
+    <button @click="setShow(true)">
+      显示show
+    </button>
+    <button @click="setShow(false)">
+      隐藏show
+    </button>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-}
+export default Vue.extend({
+  name: 'HelloWorld',
+  props: {
+    msg: String,
+  },
+  data() {
+    return {
+      show: false
+    }
+  },
+  methods: {
+    setShow(state: boolean):void{
+      this.show = state;
+    }
+  }
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
 h3 {
   margin: 40px 0 0;
 }
