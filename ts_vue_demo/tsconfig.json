@@ -35,5 +35,12 @@
   ],
   "exclude": [
     "node_modules"
+  ],
+  "plugins": [
+    {
+      "name": "typescript-tslint-plugin",
+      "configFile": "tslint.json",
+      "alwaysShowRuleFailuresAsWarnings": true
+    }
   ]
 }

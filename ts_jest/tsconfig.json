@@ -66,18 +66,18 @@
     // "noImplicitThis": false,
     
     // 检查只声明，未使用的局部变量
-    "noUnusedLocals": true,
+    // "noUnusedLocals": true,
     // 检查未使用的函数参数
-    "noUnusedParameters": true, 
+    // "noUnusedParameters": true, 
     // 防止 switch 语句贯穿
     // "noFallthroughCasesInSwitch": true,
     // 每个分支都要有返回值
     // "noImplicitReturns": true,
 
     // 允许export = 导出, 由import from 导入
-    "esModuleInterop": true,
+    // "esModuleInterop": true,
     // 允许在模块中访问  UMD 全局变量
-    "allowUmdGlobalAccess": true,
+    // "allowUmdGlobalAccess": true,
     // 模块解析策略
     // "moduleResolution": "classic",
     // 解析非相对模块的基地址

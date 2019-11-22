@@ -47,3 +47,23 @@ type AA<T> = {
 }[T extends A1 ? 'a' : 'b']
 
 let a1:AA<'d'>
+
+
+// function log1<T>(x: T): T
+// function log1(val){
+// 	return val
+// }
+// function log2<T, U>(x: T,y: U): U 
+// function log2(x, y){
+// 	return y
+// }
+let log1 = <T>(x:T):T=>{
+	return x
+}
+
+let log2 = <T, U>(x:T, y:U):T => {
+	return x
+}
+
+let st:string = '222';
+console.log(st);
