@@ -67,3 +67,4 @@ let log2 = <T, U>(x:T, y:U):T => {
 
 let st:string = '222';
 console.log(st);
+

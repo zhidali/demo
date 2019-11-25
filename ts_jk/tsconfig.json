@@ -38,7 +38,7 @@
     // 不输出文件
     // "noEmit": true,
     // 发生错误时不输出文件,
-    // "noEmitOnError": true,
+    "noEmitOnError": true,
     
     // 不生成helper函数, 需额外安装ts-helpers
     // "noEmitHelpers": true,
@@ -53,7 +53,7 @@
     // 在代码中注入 "use strict"
     // "alwaysStrict": false,
     // 不允许隐士的any类型
-    // "noImplicitAny": false, 
+    "noImplicitAny": false, 
     // 不允许把null、undefined 赋值给其他类型变量
     // "strictNullChecks": false,
     // 不允许函数参数双向协变
@@ -75,9 +75,9 @@
     // "noImplicitReturns": true,
 
     // 允许export = 导出, 由import from 导入
-    // "esModuleInterop": true,
+    "esModuleInterop": true,
     // 允许在模块中访问  UMD 全局变量
-    // "allowUmdGlobalAccess": true,
+    "allowUmdGlobalAccess": false,
     // 模块解析策略
     // "moduleResolution": "classic",
     // 解析非相对模块的基地址

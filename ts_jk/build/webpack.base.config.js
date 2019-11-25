@@ -4,8 +4,9 @@ const glob = require('glob')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const forkTs = require('fork-ts-checker-webpack-plugin')
 
-// 多入口配置，这个函数从 entries 文件夹中读取入口文件，装配成webpack.entry配置
+const {CheckerPlugin} = require('awesome-typescript-loader')
 entries = function () {
     const entryFiles = glob.sync('./src/*.ts')
     const map = {}
@@ -15,7 +16,7 @@ entries = function () {
     })
     return map
 }
- console.log(entries());
+console.log(entries());
 module.exports = {
     // entry: {
     //     index: "./src/index.ts",
@@ -33,7 +34,12 @@ module.exports = {
         rules: [{
             test: /\.tsx?$/i,
             use: [{
-                loader: 'ts-loader'
+                // loader: 'ts-loader',
+                loader: 'awesome-typescript-loader',
+                options: {
+                    // 开启失去类型检查
+                    transpileOnly: true
+                }
             }],
             exclude: /node_modules/
         }]
@@ -41,7 +47,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+        new CheckerPlugin()
+        // new forkTs()
     ],
     devServer: {
         compress: true,

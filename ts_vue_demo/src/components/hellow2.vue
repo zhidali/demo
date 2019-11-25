@@ -36,7 +36,6 @@
         })
         isVisible!: boolean;
         @Prop() title!: string | number;
-        @Prop() item!: Item;
         // 类似原来vue 里面的data
         public list: any[] = [1, 'a', 3];
         public obj: Item = {} as Item;
@@ -62,5 +61,6 @@
         public dele<T>(val:T):T {
             return val
         }
+        @Prop() item!: Item;
     }
 </script>
