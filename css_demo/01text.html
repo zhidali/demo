@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css文字技巧</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #writing-mode p {
+            writing-mode: vertical-rl
+        }
+
+        #text-align-last ul li {
+            background: #f66;
+            line-height: 40px;
+            padding: 0 20px;
+            text-align-last: justify;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+
+        p[class*=-line] {
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        .single-line {
+            width: 200px;
+        }
+
+        .sl-ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .multiple-line {
+            margin-top: 10px;
+            width: 400px;
+            text-align: justify;
+        }
+
+        .ml-ellipsis {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+        }
+
+        .mls-ellipsis {
+            overflow: hidden;
+            position: relative;
+            max-height: 90px;
+
+        }
+
+        .mls-ellipsis::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding-left: 40px;
+            background: linear-gradient(to right, transparent, #fff 50%);
+            content: "...";
+        }
+
+
+        .onepx-border {
+            margin-top: 10px;
+            width: 200px;
+            height: 80px;
+            cursor: pointer;
+            line-height: 80px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 50px;
+            color: #f66;
+        }
+
+        .onepx-border:first-child {
+            margin-top: 0;
+        }
+
+        .normal {
+            border: 1px solid #f66;
+        }
+
+        .thin {
+            position: relative;
+        }
+
+        .thin::after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            border: 1px solid #f66;
+            width: 200%;
+            height: 200%;
+            content: "";
+            transform: scale(.5);
+            transform-origin: left top;
+        }
+        #bord{
+            margin-left: 20px; 
+        }
+    </style>
+</head>
+
+<body>
+    <div id="writing-mode">
+        <h2>
+            通过writing-mode调整文本排版方向
+        </h2>
+        <p>
+            关关雎鸠
+        </p>
+    </div>
+
+    <div id="text-align-last">
+        <h2>
+            通过text-align-last:justify设置文本两端对齐
+        </h2>
+        <ul>
+            <li>
+                账号
+            </li>
+            <li>
+                电子邮件
+            </li>
+        </ul>
+    </div>
+
+    <div class="bruce flex-ct-y">
+        <p class="single-line sl-ellipsis">CSS非常有趣和搞怪，可以做一些JS也能做的事情</p>
+        <p class="multiple-line ml-ellipsis">
+            层叠样式表(CSS)是一种用来表现HTML(标准通用标记语言的一个应用)或XML(标准通用标记语言的一个子集)等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
+        </p>
+        <p class="multiple-line mls-ellipsis">
+            层叠样式表(CSS)是一种用来表现HTML(标准通用标记语言的一个应用)或XML(标准通用标记语言的一个子集)等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
+        </p>
+    </div>
+    <div id="bord">
+        <h2>
+            0.5px像素的边框
+        </h2>
+        <div class="onepx-border normal">1px</div>
+        <div class="onepx-border thin">0.5px</div>
+    </div>
+</body>
+
+</html>
