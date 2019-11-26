@@ -50,7 +50,6 @@
     import data from './assets/data.json';
     export default {
         data() {
-            console.log(1111);
             let data1 = [], //第一列
                 data2 = [], //第二列
                 data3 = [], //第三列
