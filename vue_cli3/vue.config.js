@@ -3,6 +3,10 @@ const path = require('path')
 const webpack = require('webpack')
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
+// webpack管理iconfont,支持热更新
+const WebpackIconfontPluginNodejs = require('webpack-iconfont-plugin-nodejs')
+const dir = 'src/assets/iconfontNew'
+
 module.exports = {
     publicPath: process.env.NODE_ENV == 'production' ? '/dist/' : './',
     productionSourceMap: false,
@@ -32,6 +36,14 @@ module.exports = {
             }
         },
         plugins: [
+            // 配置iconfont
+            new WebpackIconfontPluginNodejs({
+                fontName: 'icon',
+                cssPrefix: 'icon',
+                svgs: path.join(dir, 'svgs/*.svg'),
+                fontsOutput: path.join(dir, 'fonts/'),
+                cssOutput: path.join(dir, 'fonts/font.css')
+            }),
             new webpack.DllReferencePlugin({
                 context: process.cwd(),
                 manifest: require('./public/vendor/vendor-manifest.json')
