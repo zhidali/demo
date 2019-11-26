@@ -7,13 +7,12 @@ module.exports = {
     publicPath: process.env.NODE_ENV == 'production' ? '/dist/' : './',
     productionSourceMap: false,
     devServer: {
-        port: 8089,
+        port: 8888,
         open: true,
         proxy: {
-            '/api': {
-                target: 'http://test21hr.comjia.com',
-                changeOrigin: true,
-                ws: true,
+            '/backend-api/api-user': {
+                target: 'http://testbackendapi.comjia.com',
+                changeOrigin: true
             }
         }
     },

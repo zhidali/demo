@@ -7,13 +7,15 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 
-import { axios } from "./assets/http/axios";
+import {
+    axios
+} from "./assets/http/axios";
 Vue.prototype.axios = axios;
 
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount("#app");
