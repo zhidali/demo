@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /** 
+        function start(city, x, y, zoom) {
+            if (x > 16384 || y > 16384) {
+                console.log('导出图片宽高应小于16385px');
+                return;
+            }
+            var map_wrap = document.querySelector('.map-wrap');
+            var map = document.getElementById('map');
+            var img_list = map.children[0].children[2].firstElementChild.getElementsByTagName('img');
+            for (var item of img_list) {
+                item.setAttribute('crossorigin', 'anonymous');
+            }
+            var map_vue = map_wrap.__vue__.map;
+            var _mapW = map.offsetWidth;
+            var _mapH = map.offsetHeight;
+            var _zoom;
+            map.style.width = x + 'px';
+            map.style.height = y + 'px';
+            map_vue.addEventListener('tilesloaded', map_load);
+
+            function map_load() {
+                console.log('加载完成');
+                html2canvas(map, {
+                    allowTaint: true,
+                    useCORS: true
+                }).then(canvas => {
+                    map_vue.removeEventListener('tilesloaded', map_load);
+                    _zoom = map_vue.getZoom();
+                    var imgUrl = canvas.toDataURL();
+                    map.style.width = _mapW + 'px';
+                    map.style.height = _mapH + 'px';
+                    map_vue.reset();
+                    downloadFile(city + '_' + 'Z_' + _zoom + '_' + x + '*' + y + '_' + new Date().getTime() +
+                        '.png', imgUrl);
+                });
+            }
+
+            //下载
+            function downloadFile(fileName, content) {
+                let aLink = document.createElement('a');
+                let blob = base64ToBlob(content); //new Blob([content]);
+
+                let evt = document.createEvent('HTMLEvents');
+                evt.initEvent('click', true, true); //initEvent 不加后两个参数在FF下会报错  事件类型，是否冒泡，是否阻止浏览器的默认行为
+                aLink.download = fileName;
+                aLink.href = URL.createObjectURL(blob);
+
+                // aLink.dispatchEvent(evt);
+                //aLink.click()
+                aLink.dispatchEvent(
+                    new MouseEvent('click', {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window
+                    })
+                ); //兼容火狐
+            }
+            //base64转blob
+            function base64ToBlob(code) {
+                let parts = code.split(';base64,');
+                let contentType = parts[0].split(':')[1];
+                let raw = window.atob(parts[1]);
+                let rawLength = raw.length;
+
+                let uInt8Array = new Uint8Array(rawLength);
+
+                for (let i = 0; i < rawLength; ++i) {
+                    uInt8Array[i] = raw.charCodeAt(i);
+                }
+                return new Blob([uInt8Array], {
+                    type: contentType
+                });
+            }
+            map_vue.centerAndZoom(city, zoom);
+        }
+        */
+    </script>
+</body>
+
+</html>
