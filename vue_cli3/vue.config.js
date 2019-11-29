@@ -7,6 +7,11 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 const WebpackIconfontPluginNodejs = require('webpack-iconfont-plugin-nodejs')
 const dir = 'src/assets/iconfontNew'
 
+let dataUrlDev = 'http://test24backend.comjia.com'
+// let dataUrlDev = 'http://testbackendapi.comjia.com'
+// let dataUrlDev = 'http://test33backend.comjia.com'
+let dataUrlSandBox = '//backend.julive.com'
+
 module.exports = {
     publicPath: process.env.NODE_ENV == 'production' ? '/dist/' : './',
     productionSourceMap: false,
@@ -15,7 +20,31 @@ module.exports = {
         open: true,
         proxy: {
             '/backend-api/api-user': {
-                target: 'http://testbackendapi.comjia.com',
+                target: dataUrlDev,
+                changeOrigin: true
+            },
+            '/backend-api/bk-api-tag-manage': {
+                target: dataUrlDev,
+                changeOrigin: true
+            },
+            '/backend-api': {
+                target: dataUrlDev,
+                changeOrigin: true
+            },
+            '/send-data': {
+                target: 'http://api.comjia.com',
+                changeOrigin: true
+            },
+            '/backend-api/bk-map': {
+                target: dataUrlDev,
+                changeOrigin: true
+            },
+            '/backend-api/project': {
+                target: dataUrlDev,
+                changeOrigin: true
+            },
+            '/api': {
+                target: dataUrlDev,
                 changeOrigin: true
             }
         }
@@ -24,16 +53,11 @@ module.exports = {
         extract: false
     },
     configureWebpack: {
-        performance: {
-            hints: 'warning',
-            //入口起点的最大体积 整数类型（以字节为单位）
-            maxEntrypointSize: 50000000,
-            //生成文件的最大体积 整数类型（以字节为单位 300k）
-            maxAssetSize: 30000000,
-            //只给出 js 文件的性能提示
-            assetFilter: function (assetFilename) {
-                return assetFilename.endsWith('.js');
-            }
+        externals: {
+            'BMap': 'BMap'
+        },
+        resolve: {
+            extensions: ['.js', '.vue', '.json']
         },
         plugins: [
             // 配置iconfont
@@ -44,6 +68,9 @@ module.exports = {
                 fontsOutput: path.join(dir, 'fonts/'),
                 cssOutput: path.join(dir, 'fonts/font.css')
             }),
+            // new webpack.ProvidePlugin({
+            //     'BMap': 'BMap'
+            // }),
             new webpack.DllReferencePlugin({
                 context: process.cwd(),
                 manifest: require('./public/vendor/vendor-manifest.json')
@@ -57,5 +84,10 @@ module.exports = {
                 outputPath: './vendor'
             })
         ]
+    },
+    chainWebpack: config => {
+        config.resolve.alias
+            .set('vue$', 'vue/dist/vue.esm.js')
+            .set('@', path.join(__dirname, './src'))
     }
 }
