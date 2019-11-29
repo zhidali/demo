@@ -67,14 +67,15 @@ module.exports = {
                 svgs: path.join(dir, 'svgs/*.svg'),
                 fontsOutput: path.join(dir, 'fonts/'),
                 cssOutput: path.join(dir, 'fonts/font.css')
-            }),
+            })
             // new webpack.ProvidePlugin({
             //     'BMap': 'BMap'
             // }),
-            new webpack.DllReferencePlugin({
-                context: process.cwd(),
-                manifest: require('./public/vendor/vendor-manifest.json')
-            }),
+            // new webpack.DllReferencePlugin({
+            //     context: process.cwd(),
+            //     manifest: require('./public/vendor/vendor-manifest.json')
+            // })
+            /** 
             new AddAssetHtmlPlugin({
                 // dll文件位置
                 filepath: path.resolve(__dirname, './public/vendor/*.js'),
@@ -83,6 +84,7 @@ module.exports = {
                 // dll最终输出的目录
                 outputPath: './vendor'
             })
+            */
         ]
     },
     chainWebpack: config => {

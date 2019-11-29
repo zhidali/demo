@@ -243,7 +243,8 @@
 
 <script>
 import { getCity, getEmployee, getEmployeeLeader, getZxsWx } from '@/api/commonApi';
-import api from '@/api/addressBookApi/wechatRecordApi'
+// TODO
+import api from '@/api/addressBooKApi/wechatRecordApi'
 import { mapState } from 'vuex';
 export default {
     name: 'wx-friend-list',

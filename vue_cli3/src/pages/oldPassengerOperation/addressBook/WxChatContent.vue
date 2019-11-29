@@ -136,7 +136,8 @@
 </template>
 
 <script>
-import api from '@/api/addressBookApi/wechatRecordApi'
+// TODO
+import api from '@/api/addressBooKApi/wechatRecordApi'
 import moment from 'moment';
 import errorCounImg from '../../../../static/images/wechat/counPhoto.png';
 import errorClientImg from '../../../../static/images/wechat/friendsPhoto.png';

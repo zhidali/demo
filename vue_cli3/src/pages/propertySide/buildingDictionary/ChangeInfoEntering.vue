@@ -220,7 +220,8 @@
     import ChangeNoticeContent from './ChangeNoticeContent';
     import HouseDynamicInfo from './HouseDynamicInfo';
     import BuildHouseDynamicInfo from './BuildHouseDynamicInfo';
-    import BuildSpecialPrice from './BuildSpecialPrice';
+    // TODO 
+    import BuildSpecialPrice from './buildSpecialPrice';
     import CooperationStatus from './CooperationStatus'
     import reqApi from '@/api/buildingDictionary/changeInfoEnter';
     import { CommonMethods } from "@/assets/Util";

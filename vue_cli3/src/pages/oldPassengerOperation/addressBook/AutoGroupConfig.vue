@@ -219,7 +219,8 @@
 
 <script>
 import commonApi from '@/api/commonApi';
-import api from '@/api/addressBookApi/autoGroupConfig';
+// TODO
+import api from '@/api/addressBooKApi/autoGroupConfig';
 export default {
     name: 'autoGroupConfig',
     data() {

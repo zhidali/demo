@@ -7,23 +7,23 @@ import Vue from 'vue';
 import Router from 'vue-router';
 // 引入各个模块的路由
 // 楼盘侧，楼盘对比和报错页面展示
-// import buildingSige from '@/pages/propertySide/buildingDictionary/route';
+import buildingSige from '@/pages/propertySide/buildingDictionary/route';
 // 渠道侧
-// import bankRepayment from '@/pages/channelSide/bankRepayment/route';
+import bankRepayment from '@/pages/channelSide/bankRepayment/route';
 // 楼盘管理
-// import houseManage from '@/pages/propertySide/houseManage/route';
+import houseManage from '@/pages/propertySide/houseManage/route';
 // 微信托管，用于离职咨询师微信利用
-// import wechatCollocation from '@/pages/wechatCollocation/route';
+import wechatCollocation from '@/pages/wechatCollocation/route';
 // 城市开站配置
-// import cityConfiguration from '@/pages/propertySide/cityConfiguration/route';
+import cityConfiguration from '@/pages/propertySide/cityConfiguration/route';
 // 城市费率
-// import rateSetting from '@/pages/rateSetting/route';
+import rateSetting from '@/pages/rateSetting/route';
 // 楼盘管理
-// import Performance from '@/pages/performance/route';
+import Performance from '@/pages/performance/route';
 // 老客运营，包括咨询师微信好友管理
-// import addressBook from '@/pages/oldPassengerOperation/addressBook/route';
+import addressBook from '@/pages/oldPassengerOperation/addressBook/route';
 // 楼盘侧-人工审核-图片审核页面
-// import ManualReview from '@/pages/propertySide/manualReview/route';
+import ManualReview from '@/pages/propertySide/manualReview/route';
 
 
 const Login = () => import('@/pages/Login')
@@ -116,23 +116,23 @@ let router = new Router({
                     }
                 },
                 /* 楼盘侧所有路由 */
-                // buildingSige,
+                buildingSige,
                 /* 渠道侧所有路由 */
-                // bankRepayment,
+                bankRepayment,
                 // 楼盘管理路由
-                // houseManage,
+                houseManage,
                 /* 微信托管 */
-                // wechatCollocation,
+                wechatCollocation,
                 /* 城市开站配置 */
-                // cityConfiguration,
+                cityConfiguration,
                 /* 风控 业绩相关 */
-                // Performance,
+                Performance,
                 /* 老客运营的微信好友管理所有路由 */
-                // addressBook,
+                addressBook,
                 /* 城市费率 */
-                // rateSetting,
+                rateSetting,
                 /* 人工审核 */
-                // ManualReview
+                ManualReview
             ]
         },
         /* 找房工具---------------start */
