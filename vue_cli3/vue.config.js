@@ -5,7 +5,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 // webpack管理iconfont,支持热更新
 const WebpackIconfontPluginNodejs = require('webpack-iconfont-plugin-nodejs')
-const dir = 'src/assets/iconfontNew'
+const dir = 'static/iconfontNew'
 
 let dataUrlDev = 'http://test24backend.comjia.com'
 // let dataUrlDev = 'http://testbackendapi.comjia.com'
@@ -13,6 +13,7 @@ let dataUrlDev = 'http://test24backend.comjia.com'
 let dataUrlSandBox = '//backend.julive.com'
 
 module.exports = {
+    // transpileDependencies: ['element-ui'],
     publicPath: process.env.NODE_ENV == 'production' ? '/dist/' : './',
     productionSourceMap: false,
     devServer: {
@@ -67,15 +68,11 @@ module.exports = {
                 svgs: path.join(dir, 'svgs/*.svg'),
                 fontsOutput: path.join(dir, 'fonts/'),
                 cssOutput: path.join(dir, 'fonts/font.css')
-            })
-            // new webpack.ProvidePlugin({
-            //     'BMap': 'BMap'
-            // }),
-            // new webpack.DllReferencePlugin({
-            //     context: process.cwd(),
-            //     manifest: require('./public/vendor/vendor-manifest.json')
-            // })
-            /** 
+            }),
+            new webpack.DllReferencePlugin({
+                context: process.cwd(),
+                manifest: require('./public/vendor/vendor-manifest.json')
+            }),
             new AddAssetHtmlPlugin({
                 // dll文件位置
                 filepath: path.resolve(__dirname, './public/vendor/*.js'),
@@ -84,7 +81,6 @@ module.exports = {
                 // dll最终输出的目录
                 outputPath: './vendor'
             })
-            */
         ]
     },
     chainWebpack: config => {

@@ -1,4 +1,4 @@
-;var MXI_DEBUG = true;
+var MXI_DEBUG = true;
 /**
  * mOxie - multi-runtime File API & XMLHttpRequest L2 Polyfill
  * v1.5.7
@@ -11,7 +11,7 @@
  *
  * Date: 2017-11-03
  */
-;(function (global, factory) {
+(function (global, factory) {
 	var extract = function() {
 		var ctx = {};
 		factory.apply(ctx, arguments);
@@ -300,7 +300,7 @@ define('moxie/core/utils/Basic', [], function() {
 		if (obj) {
 			try {
 				length = obj.length;
-			} catch(ex) {
+			} catch (ex) {
 				length = undef;
 			}
 
@@ -935,7 +935,7 @@ define("moxie/core/utils/Env", [
 	                // try matching uastring with regexes
 	                for (j = k = 0; j < regex.length; j++) {
 	                    matches = regex[j].exec(this.getUA());
-	                    if (!!matches) {
+	                    if (matches) {
 	                        for (p = 0; p < props.length; p++) {
 	                            match = matches[++k];
 	                            q = props[p];
@@ -969,7 +969,7 @@ define("moxie/core/utils/Env", [
 	                    }
 	                }
 
-	                if(!!matches) break; // break the loop immediately if match found
+	                if (matches) break; // break the loop immediately if match found
 	            }
 	            return result;
 	        },
@@ -1495,7 +1495,7 @@ define("moxie/core/utils/Env", [
 				try {
 					gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 				}
-				catch(e) {}
+				catch (e) {}
 
 				if (!gl) { // it seems that sometimes it doesn't throw exception, but still fails to get context
 					gl = null;
@@ -3588,7 +3588,7 @@ define("moxie/core/utils/Mime", [
 		mimes2extList: mimes2extList,
 		getFileExtension: getFileExtension,
 		getFileMime: getFileMime
-	}
+	};
 });
 
 // Included from: src/javascript/file/FileInput.js
@@ -4617,7 +4617,7 @@ define('moxie/core/utils/Url', [
 			https: 443
 		}
 		, urlp = typeof(url) === 'object' ? url : parseUrl(url);
-		;
+		
 
 		return urlp.scheme + '://' + urlp.host + (urlp.port !== ports[urlp.scheme] ? ':' + urlp.port : '') + urlp.path + (urlp.query ? urlp.query : '');
 	};
@@ -5190,13 +5190,13 @@ define("moxie/xhr/XMLHttpRequest", [
 				}
 
 				// 3
-				if (!!~Basic.inArray(method.toUpperCase(), ['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'TRACE', 'TRACK'])) {
+				if (~Basic.inArray(method.toUpperCase(), ['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'TRACE', 'TRACK'])) {
 					_method = method.toUpperCase();
 				}
 
 
 				// 4 - allowing these methods poses a security risk
-				if (!!~Basic.inArray(_method, ['CONNECT', 'TRACE', 'TRACK'])) {
+				if (~Basic.inArray(_method, ['CONNECT', 'TRACE', 'TRACK'])) {
 					throw new x.DOMException(x.DOMException.SECURITY_ERR);
 				}
 
@@ -5387,7 +5387,7 @@ define("moxie/xhr/XMLHttpRequest", [
 				var matches, charset;
 
 				// 1
-				if (!!~Basic.inArray(_p('readyState'), [XMLHttpRequest.LOADING, XMLHttpRequest.DONE])) {
+				if (~Basic.inArray(_p('readyState'), [XMLHttpRequest.LOADING, XMLHttpRequest.DONE])) {
 					throw new x.DOMException(x.DOMException.INVALID_STATE_ERR);
 				}
 
@@ -5758,7 +5758,7 @@ define("moxie/xhr/XMLHttpRequest", [
 
 					_p('response', runtime.exec.call(_xhr, 'XMLHttpRequest', 'getResponse', _p('responseType')));
 
-					if (!!~Basic.inArray(_p('responseType'), ['text', ''])) {
+					if (~Basic.inArray(_p('responseType'), ['text', ''])) {
 						_p('responseText', _p('response'));
 					} else if (_p('responseType') === 'document') {
 						_p('responseXML', _p('response'));
@@ -6348,7 +6348,7 @@ define("moxie/image/Image", [
 					}
 
 					this.exec('Image', 'resize', srcRect, scale, opts);
-				} catch(ex) {
+				} catch (ex) {
 					// for now simply trigger error event
 					self.trigger('error', ex.code);
 				}
@@ -6580,7 +6580,7 @@ define("moxie/image/Image", [
 					}
 
 					return imgCopy;
-				} catch(ex) {
+				} catch (ex) {
 					// for now simply trigger error event
 					this.trigger('error', ex.code);
 				}
@@ -6632,7 +6632,7 @@ define("moxie/image/Image", [
 				}
 
 				return true;
-			} catch(ex) {
+			} catch (ex) {
 				this.trigger('error', ex.code);
 				return false;
 			}
@@ -6679,7 +6679,7 @@ define("moxie/image/Image", [
 				else {
 					throw new x.DOMException(x.DOMException.TYPE_MISMATCH_ERR);
 				}
-			} catch(ex) {
+			} catch (ex) {
 				// for now simply trigger error event
 				this.trigger('error', ex.code);
 			}
@@ -7099,7 +7099,7 @@ define('moxie/core/utils/Events', [
 			// IE doesn't let you remove DOM object property with - delete
 			try {
 				delete obj[uid];
-			} catch(e) {
+			} catch (e) {
 				obj[uid] = undef;
 			}
 		}
@@ -7784,7 +7784,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 									if (_xhr.responseText) { // responseText was introduced in IE7
 										loaded = _xhr.responseText.length;
 									}
-								} catch(ex) {
+								} catch (ex) {
 									total = loaded = 0;
 								}
 
@@ -7806,7 +7806,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 										target.trigger('load');
 										break;
 									}
-								} catch(ex) {}
+								} catch (ex) {}
 
 								target.trigger('error');
 								break;
@@ -7858,7 +7858,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 					if (_xhr) {
 						return _xhr.status;
 					}
-				} catch(ex) {}
+				} catch (ex) {}
 				return 0;
 			},
 
@@ -7899,7 +7899,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 						default:
 							return _xhr.responseText !== '' ? _xhr.responseText : null; // against the specs, but for consistency across the runtimes
 					}
-				} catch(ex) {
+				} catch (ex) {
 					return null;
 				}
 			},
@@ -7907,7 +7907,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 			getAllResponseHeaders: function() {
 				try {
 					return _xhr.getAllResponseHeaders();
-				} catch(ex) {}
+				} catch (ex) {}
 				return '';
 			},
 
@@ -8623,12 +8623,12 @@ define("moxie/runtime/html5/image/ExifParser", [
 
 
 			RATIONAL: function(idx) {
-				return this.LONG(idx) / this.LONG(idx + 4)
+				return this.LONG(idx) / this.LONG(idx + 4);
 			},
 
 
 			SRATIONAL: function(idx) {
-				return this.SLONG(idx) / this.SLONG(idx + 4)
+				return this.SLONG(idx) / this.SLONG(idx + 4);
 			},
 
 			ASCII: function(idx) {
@@ -8646,7 +8646,7 @@ define("moxie/runtime/html5/image/ExifParser", [
 				if (offsets.exifIFD) {
 					try {
 						Exif = extractTags.call(this, offsets.exifIFD, tags.exif);
-					} catch(ex) {
+					} catch (ex) {
 						return null;
 					}
 
@@ -8863,7 +8863,7 @@ define("moxie/runtime/html5/image/ExifParser", [
 
 			try {
 				this.write(valueOffset, value, 4);
-			} catch(ex) {
+			} catch (ex) {
 				return false;
 			}
 
@@ -8916,7 +8916,7 @@ define("moxie/runtime/html5/image/JPEG", [
 		// extract exif info
 		try {
 			_ep = new ExifParser(_hm.get('app1')[0]);
-		} catch(ex) {}
+		} catch (ex) {}
 
 		// get dimensions
 		_info = _getDimensions.call(this);
@@ -10377,7 +10377,7 @@ define("moxie/runtime/flash/xhr/XMLHttpRequest", [
 				try {
 					frs = new FileReaderSync();
 
-					if (!!~Basic.inArray(responseType, ["", "text"])) {
+					if (~Basic.inArray(responseType, ["", "text"])) {
 						return frs.readAsText(blob);
 					} else if ('json' === responseType && !!window.JSON) {
 						return JSON.parse(frs.readAsText(blob));
@@ -11363,7 +11363,7 @@ define("moxie/runtime/html4/file/FileInput", [
 				}
 
 				// update current input
-				input = Dom.get(_uid)
+				input = Dom.get(_uid);
 				if (input) {
 					input.setAttribute('accept', _mimes.join(','));
 				}

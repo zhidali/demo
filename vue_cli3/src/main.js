@@ -25,13 +25,11 @@ Vue.use(ElementUI);
 
 // 设置为全局的axios
 Vue.prototype.axios = axios;
-/* eslint-disable no-new */
+
+
+
 new Vue({
-    el: '#app',
     router,
     store,
-    components: {
-        App
-    },
-    template: '<App/>'
-});
+    render: h => h(App)
+}).$mount('#app');

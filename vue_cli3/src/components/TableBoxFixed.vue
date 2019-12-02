@@ -101,8 +101,9 @@
   </div>
 </template>
 <script>
+// TODO 页面注入Modal组件报错
 import Map from './Map.vue'
-import { Modal } from '@/components'
+// import { Modal } from '@/components'
 export default {
   props: {
     // 表格信息
@@ -449,7 +450,7 @@ export default {
       this.$emit('tableFilterList', para)
     }
   },
-  components: {Map, Modal},
+  components: {Map},
   watch: {
     // 深度监视 数据总条数
     totalCount: {
