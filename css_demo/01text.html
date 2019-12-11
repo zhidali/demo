@@ -12,6 +12,24 @@
             margin: 0;
             list-style: none;
         }
+        .sanjiao{
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            margin: 20px;
+        }
+        .sanjiao:after {
+            display: inline-block;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid #555;
+            content: "";
+            position: relative;
+            width: 0;
+            height: 0;
+        }
 
         #writing-mode p {
             writing-mode: vertical-rl
@@ -109,13 +127,17 @@
             transform: scale(.5);
             transform-origin: left top;
         }
-        #bord{
-            margin-left: 20px; 
+
+        #bord {
+            margin-left: 20px;
         }
     </style>
 </head>
 
 <body>
+    <span class="sanjiao">
+
+    </span>
     <div id="writing-mode">
         <h2>
             通过writing-mode调整文本排版方向
@@ -160,11 +182,10 @@
         map.set(1, '111');
         map.set(2, '222');
         console.log(map);
-        
+
         map.forEach(v => {
             console.log(v);
         })
-
     </script>
 </body>
 
