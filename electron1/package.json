@@ -30,6 +30,7 @@
       "output": "build"
     },
     "win": {
+      "icon": "./ceshi.ico",
       "target": [
         "nsis",
         "zip"
