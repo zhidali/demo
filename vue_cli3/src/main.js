@@ -19,7 +19,7 @@ import methods from './assets/methods.js'; // 挂载到vue上面的公共方法
 
 
 Vue.use(methods);
-
+console.log(process.env.IS_WEB);
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
