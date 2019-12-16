@@ -32,8 +32,8 @@
             if (e.target == moveElem) {
                 dragging = true; //激活拖拽状态
                 var moveElemRect = moveElem.getBoundingClientRect();
-                tLeft = e.clientX - moveElemRect.left; 
-                tTop = e.clientY - moveElemRect.top; 
+                tLeft = e.clientX - moveElemRect.left;
+                tTop = e.clientY - moveElemRect.top;
             }
         });
 
@@ -47,7 +47,7 @@
             if (dragging) {
                 var moveX = e.clientX - tLeft,
                     moveY = e.clientY - tTop;
-                
+
                 moveElem.style.left = moveX + 'px';
                 moveElem.style.top = moveY + 'px';
 
