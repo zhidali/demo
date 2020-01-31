@@ -18,7 +18,7 @@ module.exports = {
     productionSourceMap: false,
     devServer: {
         port: 8888,
-        open: true,
+        open: false,
         proxy: {
             '/backend-api/api-user': {
                 target: dataUrlDev,

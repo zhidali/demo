@@ -1,7 +1,7 @@
 /* eslint-disable */
 const path = require('path')
 const webpack = require('webpack')
-// const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CleanWebpaclPlugin = require('clean-webpack-plugin');
 
 // dll文件存放的目录
 const dllPath = 'public/vendor'
@@ -13,10 +13,10 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, dllPath),
-        filename: '[name].dll.js',
+        filename: 'dll.[name].[hash:8].js',
         // vendor.dll.js中暴露出的全局变量名
         // 保持与 webpack.DllPlugin 中名称一致
-        library: '[name]_[hash]'
+        library: '_dll_[name]_[hash]'
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -26,9 +26,11 @@ module.exports = {
     },
     plugins: [
         // 清除之前的dll文件
-        // new CleanWebpackPlugin(['*.*'], {
-        //     root: path.join(__dirname, dllPath)
-        // }),
+        new CleanWebpaclPlugin({
+            cleanOnceBeforeBuildPatterns: [
+              path.resolve(__dirname, './public/vendor/*.js')
+            ]
+        }), 
         // 设置环境变量
         new webpack.DefinePlugin({
             'process.env': {
@@ -39,7 +41,7 @@ module.exports = {
         new webpack.DllPlugin({
             path: path.join(__dirname, dllPath, '[name]-manifest.json'),
             // 保持与 output.library 中名称一致
-            name: '[name]_[hash]',
+            name: '_dll_[name]_[hash]',
             context: process.cwd()
         })
     ]

@@ -45,7 +45,7 @@ Vue.use(Router);
 
 let router = new Router({
     mode: 'history',
-    base: '/dist',
+    base: '/',
     routes: [{
             path: '/login',
             name: 'login',
