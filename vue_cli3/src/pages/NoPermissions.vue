@@ -1,7 +1,7 @@
 <template>
   <div class="no-permission">
     <div class="logo-box">
-      <img src="../../static/images/logo.png">
+      <img src="../assets/images/logo.png">
     </div>
     <h3>北京居理科技有限公司</h3>
     <div class="user-box">

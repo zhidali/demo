@@ -454,6 +454,10 @@
                         list: dataArr,
                         reason
                     };
+                    // 如果list无数据则不进行请求
+                    if (params.list.length === 0) {
+                        return;
+                    }
                     this.axios
                         .post('/backend-api/expand/ex-bank-flow/finance-reject', params)
                         .then(res => {

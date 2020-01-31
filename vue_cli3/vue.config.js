@@ -7,7 +7,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 const WebpackIconfontPluginNodejs = require('webpack-iconfont-plugin-nodejs')
 const dir = 'static/iconfontNew'
 
-let dataUrlDev = 'http://test24backend.comjia.com'
+let dataUrlDev = 'http://testbackendapi.comjia.com'
 // let dataUrlDev = 'http://testbackendapi.comjia.com'
 // let dataUrlDev = 'http://test33backend.comjia.com'
 let dataUrlSandBox = '//backend.julive.com'

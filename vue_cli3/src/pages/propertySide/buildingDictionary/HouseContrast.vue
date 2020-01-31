@@ -527,7 +527,7 @@
                                                                 class="delete"
                                                                 @click="deleteHouImg(val,index,itemKey)"
                                                             >
-                                                                <img src="../../../../static/images/sreachTool/delete-icon.png" />
+                                                                <img src="../../../assets/images/delete-icon.png" />
                                                             </span>
                                                             <img
                                                                 :src="val.show_url"
@@ -821,7 +821,7 @@
                                                                 class="delete"
                                                                 @click="deleteHouImg(val,index,itemKey)"
                                                             >
-                                                                <img src="../../../../static/images/sreachTool/delete-icon.png" />
+                                                                <img src="../../../assets/images/delete-icon.png" />
                                                             </span>
                                                             <img
                                                                 :src="val.show_url"
@@ -1563,7 +1563,7 @@
         MsgDialog
     } from './components';
     import { setTimeout } from 'timers';
-    import { CommonMethods } from '@/assets/Util';
+    import { commonFun } from '@/assets/js/utils/utils';
     export default {
         name: 'building-houseContrast',
         data() {
@@ -1809,7 +1809,7 @@
                         topage_id: 'p_house_type_task'
                     });
                 }
-                CommonMethods.setTrackMenu(para, config);
+                commonFun.setTrackMenu(para, config);
             },
             // 更换关联关系
             leaveChange() {

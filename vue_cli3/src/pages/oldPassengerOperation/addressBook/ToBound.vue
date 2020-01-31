@@ -55,7 +55,7 @@
                                 />
                                 <img 
                                     v-else 
-                                    src="/static/images/img-user-avatar.png" 
+                                    src="../../../assets/images/img-user-avatar.png"
                                     alt ="微信头像"
                                      />
                             </div>
@@ -110,8 +110,8 @@
 import {
     mapState
 } from "vuex";
-import addressBookListApi from "@/api/addressBooKApi/addressListApi";
-import toBoundApi from "@/api/addressBooKApi/toBoundApi";
+import addressBookListApi from "./api/addressListApi";
+import toBoundApi from "./api/toBoundApi";
 import ConsultantInfo from "./components/ConsultantInformation";
 import FriendGroup from "./components/PepoleGroupList";
 import RankList from "./components/RankList";

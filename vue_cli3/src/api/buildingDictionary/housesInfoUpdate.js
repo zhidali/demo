@@ -4,7 +4,7 @@
  * @author: 贺伟
  * @date: 2019-11-19
  */
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 
 // 楼盘信息更新详情接口接口
 const projectDetailApi = '/backend-api/project/cj-project-level/detail';

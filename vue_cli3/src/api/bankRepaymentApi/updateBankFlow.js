@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 // 获取银行流水信息URL/保存银行流水信息URL
 const getBankFlowApi = '/backend-api/expand/ex-bank-flow/edit';
 // 获取公司账号URL

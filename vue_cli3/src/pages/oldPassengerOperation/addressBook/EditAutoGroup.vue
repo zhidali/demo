@@ -110,8 +110,7 @@
 </template>
 
 <script>
-    // TODO
-    import api from '@/api/addressBooKApi/editAutoGroup';
+    import api from './api/editAutoGroup';
     import NumberInput from '@/components/NumberInput';
     export default {
         name: 'editAutoGroup',

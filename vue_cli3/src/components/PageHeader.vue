@@ -4,7 +4,7 @@
     <div class="jl-header">
       <div class="jl-header-left">
         <a :href="this.logoninfo.menuUrl" @click="addPoint(logoninfo.track_id)">
-          <img src="../../static/images/logo.png" alt="" class="jl-respoinsive">
+          <img src="../assets/images/logo.png" alt="" class="jl-respoinsive">
         </a><span class="jl-icon-text">欢迎登录侃家网业务管理系统</span>
       </div>
       <div class="jl-header-right">
@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import {CommonMethods} from '../assets/Util'
-import {trackAxios} from '@/assets/axios'
+import { commonFun } from '../assets/js/utils/utils'
+import {trackAxios} from '@/assets/js/http/axios'
 import {mapState} from 'vuex'
 import apiObj from "@/api/commonApi";
 export default {
@@ -134,13 +134,13 @@ export default {
     // 添加埋点
     addPoint (trackid) {
       let maiInfo = {
-        screen_height: CommonMethods.ScreenHeight(),
-        screen_width: CommonMethods.ScreenWidth(),
-        device_type: CommonMethods.getDevice().device,
-        os: CommonMethods.getOS().os,
-        os_version: CommonMethods.getOS().os_version,
-        browser: CommonMethods.getBrowse().browser,
-        browser_version: CommonMethods.getBrowse().browser_version
+        screen_height: commonFun.ScreenHeight(),
+        screen_width: commonFun.ScreenWidth(),
+        device_type: commonFun.getDevice().device,
+        os: commonFun.getOS().os,
+        os_version: commonFun.getOS().os_version,
+        browser: commonFun.getBrowse().browser,
+        browser_version: commonFun.getBrowse().browser_version
       }
       let trackAll = Object.assign({}, maiInfo, this.trackInfos)
       let trackData = {

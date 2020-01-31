@@ -53,10 +53,11 @@
      * @updater 解彬
      */
     import moment from 'moment';
-    import ossConf from '@/assets/config';
-    import OssUpload from '@/utils/ossUpload';
+    import ossConf from '@/config/config';
+    import OssUpload from '@/assets/js/upload/ossUpload';
     import reqApi from '@/api/commonApi';
     import ImageReview from '@/components/ImagePreview';
+    import md5 from 'md5';
     export default {
         name: 'ImageUpload',
         props: {
@@ -144,7 +145,7 @@
                     // this.$message(`最多上传${this.maxCount}张图片！`);
                     return false;
                 }
-                if (this.imgList.find(ele => ele.name.split('/')[1] === name)) {
+                if (this.imgList.find(ele => ele.originName === name)) {
                     // this.$message(`上传的文件重复，请重新选择`);
                     return false;
                 }
@@ -221,19 +222,22 @@
                         // 当前时间
                         const dateTime = moment().format('YYYYMMDDhhmmss');
                         const randomStr = this.randomString(4);
-                        const fileName = `${dir}${dateTime}/${randomStr}_${file.name}`;
+                        const typeName = file.name.split('.')[1];
+                        // 文件名
+                        const fileName = `${dir}${dateTime}_${randomStr}_${md5(file.name)}.${typeName}`;
                         // 开始上传
                         const {
                             url,
                             // 示例 resume/cssom.pdf
                             name,
                             res
-                        } = await ossUp.putBlob(`${dir}${file.name}`, file);
+                        } = await ossUp.putBlob(`${fileName}`, file);
                         // 将返回的地址赋值到图片列表
                         if (this.imgList.length < 10) {
                             this.imgList.push({
                                 url,
-                                name
+                                name,
+                                originName: file.name
                             });
                         }
                         this.$refs.uploadImg.value = '';

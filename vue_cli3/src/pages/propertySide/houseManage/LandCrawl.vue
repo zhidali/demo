@@ -135,7 +135,7 @@
         loginCreis, // 中指数据登录接口
         getCrawlLog // 获取爬取日志
     } from '@/api/houseManage';
-    import dataStorage from '@/utils/dataStorage';
+    import dataStorage from '@/assets/js/utils/dataStorage';
     export default {
         name: 'LandCrawl',
         data() {

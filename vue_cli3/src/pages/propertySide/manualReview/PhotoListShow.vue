@@ -694,6 +694,7 @@ export default {
          * @param {boolean} val 关闭预览
          */
         closeViewer(val) {
+            document.body.style.overflow = 'auto';
             this.PhotoIsShow = val;
         }
     },

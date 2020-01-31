@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 const getRateListApi = '/backend-api/expand/ex-target-rate/index'; // 获取费率数据列表信息
 const getEditRateApi = '/backend-api/expand/ex-target-rate/edit'; // 编辑目标费率获取初始数据
 const getSaveRateApi = '/backend-api/expand/ex-target-rate/edit'; // 编辑目标费率保存数据

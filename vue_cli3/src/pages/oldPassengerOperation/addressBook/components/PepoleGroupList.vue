@@ -52,7 +52,7 @@
 import {
     mapState
 } from "vuex";
-import addressBookListApi from "@/api/addressBooKApi/addressListApi";
+import addressBookListApi from "../api/addressListApi";
 
 export default {
     data() {

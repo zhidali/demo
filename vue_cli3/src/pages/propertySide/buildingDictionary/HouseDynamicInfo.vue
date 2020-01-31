@@ -441,7 +441,7 @@
 <script>
     import NumberInput from '@/components/NumberInput';
     import BuildingDictionarySelect from './components/BuildingDictionarySelect';
-    import { CommonMethods } from "@/assets/Util";
+    import { commonFun } from "@/assets/js/utils/utils";
     // 标签都不选状态
     const noStatus = {
         id: -1,
@@ -981,7 +981,7 @@
                         toPage: 'p_change_log'
                     }, config);
                 }
-                CommonMethods.setTrackMenu(para, conf);
+                commonFun.setTrackMenu(para, conf);
             },
             /**
              * 切换楼盘销售状态埋点

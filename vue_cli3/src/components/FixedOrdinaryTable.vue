@@ -123,8 +123,6 @@
   </div>
 </template>
 <script>
-import Map from './Map.vue'
-import { Modal } from '@/components'
 import ImageSwiperViewer from './ImageSwiperViewer'
 export default {
   props: {
@@ -467,7 +465,7 @@ export default {
       }
     }
   },
-  components: {Map, Modal, ImageSwiperViewer},
+  components: {ImageSwiperViewer},
   watch: {
     // 深度监视 数据总条数
     totalCount: {

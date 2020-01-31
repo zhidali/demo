@@ -45,7 +45,7 @@
                                 <img :src="item" />
                             </div>
                             <img
-                                src="../../../../../static/images/deleteImg.png"
+                                src="../../../../assets/images/deleteImg.png"
                                 alt
                                 class="delete"
                                 @click="deleteImg(index)"

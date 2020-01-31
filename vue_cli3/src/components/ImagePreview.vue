@@ -55,5 +55,7 @@ export default {
 </script>
 
 <style>
-
+.el-icon-circle-close{
+    color: #fff;
+}
 </style>

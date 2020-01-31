@@ -86,7 +86,7 @@
                                             :preview-src-list="[wxItem.content]">
                                             <div slot="error" class="image-slot">
                                                 <img
-                                                    src="../../../../static/images/addressList/img-error.png"
+                                                    src="../../../assets/images/img-middle-default.png"
                                                     alt="图片加载失败">
                                             </div>
                                         </el-image>
@@ -120,7 +120,7 @@
                         class="no-message-box"
                         v-else>
                         <img
-                            src="../../../../static/images/wechat/insertPhoto.png"
+                            src="../images/img-insert-photo.png"
                             alt="消息列表为空">
                     </div>
                     <p
@@ -136,11 +136,10 @@
 </template>
 
 <script>
-// TODO
-import api from '@/api/addressBooKApi/wechatRecordApi'
+import api from './api/wechatRecordApi'
 import moment from 'moment';
-import errorCounImg from '../../../../static/images/wechat/counPhoto.png';
-import errorClientImg from '../../../../static/images/wechat/friendsPhoto.png';
+import errorCounImg from '../../../assets/images/img-count-photo.png';
+import errorClientImg from '../../../assets/images/img-friends-photo.png';
 export default {
     name: 'wx-chat-content',
     data () {
@@ -199,7 +198,7 @@ export default {
          * @param {Number} type 是否清空聊天数据数组，1为清空，2为不清空
          */
         async getContent(page, type) {
-            // 判断如果有uid，再进行请求，从vuex中获取，避免获取不到的情况
+            // 判断如果有uid，再进行请求
             if (this.uid) {
                 let startDate = moment(this.wxchatDate[0].getTime()).format('YYYY-MM-DD');
                 let endDate = moment(this.wxchatDate[1].getTime()).format('YYYY-MM-DD');
@@ -233,6 +232,8 @@ export default {
                     // 关闭页面初始化loading
                     this.contentLoading = false;
                 }
+            } else {
+                this.contentLoading = false;
             }
         },
         // 导出

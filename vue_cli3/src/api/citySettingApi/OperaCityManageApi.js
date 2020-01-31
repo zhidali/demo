@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 
 // 获取地理城市接口
 const getMultiCityApi = '/backend-api/project/multi-city-manage/get-geo-city';

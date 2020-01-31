@@ -101,7 +101,7 @@
 
 <script>
     import reqApi from '@/api/buildingDictionary/housesInfoUpdate';
-    import { CommonMethods } from "@/assets/Util";
+    import { commonFun } from "@/assets/js/utils/utils";
     export default {
         name: 'HousesInfoUpdateDetail',
         created() {
@@ -215,7 +215,7 @@
                         toPage: 'p_changelog_detail'
                     });
                 }
-                CommonMethods.setTrackMenu(para, config);
+                commonFun.setTrackMenu(para, config);
             },
             /**
              * 楼盘动态信息合并行或列的计算方法

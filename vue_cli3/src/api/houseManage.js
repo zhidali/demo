@@ -1,4 +1,4 @@
-import {axios} from '@/assets/axios'
+import {axios} from '@/assets/js/http/axios'
 
 const landCityUrl = '/backend-api/bd-creis/city-list' // 获取土地信息和成交数据城市下拉
 const creisLoginUrl = '/backend-api/bd-creis/login' // 中指数据登录

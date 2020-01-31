@@ -1,5 +1,5 @@
 /* 公共api */
-import {axios} from '@/assets/axios';
+import {axios} from '@/assets/js/http/axios';
 
 const cityUrl = '/backend-api/select2/select2/get-city-list-select2';
 // 获取咨询师
@@ -18,6 +18,16 @@ const newEmployeeApi = '/backend-api/select2/select2/new-get-employee-list-selec
 const roleListApi = '/backend-api/common/get-role-list';
 // 切换用户角色权限api
 const switchRoleApi = '/backend-api/common/switch-role';
+// 获取公共弹窗接口
+const commonDialogApi = '/backend-api/api-user/pop';
+// 响应差-发送验证码
+const talkingPopSendCodeApi = '/backend-api/api-user/talking-pop-send-code';
+// 响应差-验证验证码
+const talkingPopCheckCodeApi = '/backend-api/api-user/talking-pop-check-code';
+// 响应差-轮询是否给客户回电
+const talkingPopApi = '/backend-api/api-user/talking-pop';
+
+
 // 获取城市信息接口，参数type 城市类型（如需全国请传1）
 export const getCity = (type) => axios.get(cityUrl, {params: {city_type: type}})
 
@@ -103,11 +113,55 @@ const getRoleList = (params) => axios.post(roleListApi, params)
  * @return {Promise}
  */
 const switchRole = (params) => axios.post(switchRoleApi, params)
+
+
+/**
+ * 获取公共弹窗
+ * @return {Promise}
+ */
+const getCommonDialogApi = () => axios.get(commonDialogApi);
+
+/**
+ * @description: 公共埋点接口
+ */
+const trackInfoApi = '/backend-api/common/backend-track-info';
+export const getTrackInfo = () => axios.post(trackInfoApi);
+
+/**
+ * 响应差-发送验证码
+ * @param {string} params.mobile 手机号
+ * @return {Promise}
+ * 参考接口：http://ams.julive.com/#/home/project/inside/api/detail?groupID=-1&apiID=2547&projectName=%E6%94%AF%E6%92%91%E7%B3%BB%E7%BB%9F-%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3&projectID=131
+ */
+const getTalkingPopSendCode = (params) => axios.post(talkingPopSendCodeApi, params);
+
+/**
+ * 响应差-验证验证码
+ * @param {string} params.order_id 订单id
+ * @param {string} params.mobile 手机号
+ * @param {string} params.code 验证码
+ * 参考接口：http://ams.julive.com/#/home/project/inside/api/detail?groupID=-1&apiID=2548&projectName=%E6%94%AF%E6%92%91%E7%B3%BB%E7%BB%9F-%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3&projectID=131
+ * @return {Promise}
+ */
+const getTalkingPopCheckCode = (params) => axios.post(talkingPopCheckCodeApi, params);
+
+/**
+ * 轮询咨询师是否已给客户回电
+ * @param {string} params.talkiing_id 记录Id
+ * @return {Promise}
+ * 参考接口：http://ams.julive.com/#/home/project/inside/api/detail?groupID=-1&apiID=2546&projectName=%E6%94%AF%E6%92%91%E7%B3%BB%E7%BB%9F-%E5%85%AC%E5%85%B1%E6%8E%A5%E5%8F%A3&projectID=131
+ */
+const getTalkingPop = (params) => axios.post(talkingPopApi, params);
+
 const apiObj = {
     userLogin,
     getSign,
     getPageEmployee,
     getRoleList,
-    switchRole
+    switchRole,
+    getCommonDialogApi,
+    getTalkingPopSendCode,
+    getTalkingPopCheckCode,
+    getTalkingPop
 };
 export default apiObj;

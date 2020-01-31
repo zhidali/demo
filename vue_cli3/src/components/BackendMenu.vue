@@ -25,9 +25,9 @@
 
 <script>
 import SubMenuItem from './SubMenuItem'
-import {CommonMethods} from '../assets/Util'
+import { commonFun } from '../assets/js/utils/utils'
 import { mapState } from 'vuex'
-import {trackAxios} from '../assets/axios'
+import {trackAxios} from '../assets/js/http/axios'
 export default {
   name: 'backend-menu',
   data () {
@@ -80,7 +80,7 @@ export default {
     // 点击导航事件
     selectMenu (index, keyPath) {
       // 埋点
-      CommonMethods.setTrackMenu(JSON.parse(this.$refs.elMenu.activeIndex).track_id, {})
+      commonFun.setTrackMenu(JSON.parse(this.$refs.elMenu.activeIndex).track_id, {})
       // 拿到选中项的菜单中的is_out_url字段，判断跳转方式
       let menuObj = JSON.parse(index)
       let isOut = menuObj ? menuObj.is_out_url : 2

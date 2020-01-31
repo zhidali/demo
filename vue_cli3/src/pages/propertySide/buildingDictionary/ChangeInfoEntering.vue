@@ -110,7 +110,7 @@
                     <!-- 合作带看模块 -->
                     <cooperation-status
                         ref="cooperateBand"
-                        v-if="labelIdx === 0"
+                        v-if="labelIdx === 0 || labelIdx === 2 && housesInfo.labelVal == 9"
                         :houses-info="changeNotice"
                         :cooperation-status="baseConfig.cooperateOutreachList"
                         :band-status="baseConfig.bandStatusList" />
@@ -220,11 +220,10 @@
     import ChangeNoticeContent from './ChangeNoticeContent';
     import HouseDynamicInfo from './HouseDynamicInfo';
     import BuildHouseDynamicInfo from './BuildHouseDynamicInfo';
-    // TODO 
-    import BuildSpecialPrice from './buildSpecialPrice';
+    import BuildSpecialPrice from './BuildSpecialPrice';
     import CooperationStatus from './CooperationStatus'
     import reqApi from '@/api/buildingDictionary/changeInfoEnter';
-    import { CommonMethods } from "@/assets/Util";
+    import { commonFun } from "@/assets/js/utils/utils";
     const {
         getProjectBaseInfoData,
         getProjectConfigData,
@@ -671,6 +670,16 @@
                         }
                     }
                 } else if (this.labelIdx === 2) {
+                    if(this.housesInfo.labelVal == 9) {
+                        const cooperateBandRes = this.$refs['cooperateBand'].validForm();
+                        if (cooperateBandRes.successful) {
+                            this.saveFormInfo(Object.assign(options, cooperateBandRes.formInfo));
+                        } else {
+                            // 定位到未校验通过的地方
+                            this.errorScroll(this.$refs['cooperateBand'].$el);
+                        }
+                        return;
+                    }
                     this.saveFormInfo(Object.assign(options));
                 }
             },
@@ -692,7 +701,7 @@
              * @param {object}} para 埋点拓展字段
              */
             setTrack(trackId, para) {
-                CommonMethods.setTrackMenu(trackId, para);
+                commonFun.setTrackMenu(trackId, para);
             },
             // 点击弹窗修改户型销售状态处理
             editHouseTypeStatus() {

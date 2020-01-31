@@ -616,7 +616,7 @@
 <script>
 import merge from 'webpack-merge'
 import { setTimeout } from 'timers'
-import { CommonMethods } from '@/assets/Util'
+import { commonFun } from '@/assets/js/utils/utils'
 export default {
   name: 'building-houseInfoContrast',
   data () {
@@ -747,7 +747,7 @@ export default {
                 topage_id: 'p_building_task'
             });
         }
-        CommonMethods.setTrackMenu(trackId, para);
+        commonFun.setTrackMenu(trackId, para);
     },
     openImg (para) {
       window.open(para.show_url, '_blank')

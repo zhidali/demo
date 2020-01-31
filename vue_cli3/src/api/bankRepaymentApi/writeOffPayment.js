@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 // 财务审核驳回api
 const financeRejectApi = '/backend-api/expand/ex-bank-flow/finance-reject';
 // 释放撤回Api

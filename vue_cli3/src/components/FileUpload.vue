@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import {CommonMethods} from '@/assets/Util'
+import { commonFun } from '@/assets/js/utils/utils'
 import {getSign} from '@/api/commonApi'
 import moment from 'moment'
-window.mOxie = window.moxie = require('../../static/js/moxie.js')
-require('../../static/js/plupload.dev')
+window.mOxie = window.moxie = require('../../static/lib/uploads/moxie.js')
+require('../../static/lib/uploads/plupload.dev')
 export default {
   name: 'file-upload',
   props: {
@@ -85,9 +85,9 @@ export default {
       function setUploadParam (up, filename, ret) {
         let fileName = ''
         if (filename && typeof filename == 'string') {
-          fileName = CommonMethods.trimAll(filename)
+          fileName = commonFun.trimAll(filename)
         }
-        let keyName = that.signs.dir + moment().format('X') + CommonMethods.random_string(6) + fileName
+        let keyName = that.signs.dir + moment().format('X') + commonFun.random_string(6) + fileName
         let newMultipartParams = {
           key: keyName,
           policy: that.signs.policy,
@@ -106,7 +106,7 @@ export default {
         multi_selection: false, // 禁止多文件上传
         browse_button: that.upID, // 触发文件上传的按钮 id（传入的参数）
         url: that.signs.host, // 服务器的地址，与提供的阿里云的地址一致
-        flash_swf_url: '../../static/js/moxie.swf',
+        flash_swf_url: '../../static/lib/uploads/moxie.swf',
         filters: {
           mime_types: [
             {

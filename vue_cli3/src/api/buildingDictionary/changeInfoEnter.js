@@ -4,7 +4,7 @@
  * @author: 贺伟
  * @date: 2019-11-16
  */
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 
 
 // 获取楼盘基本信息接口

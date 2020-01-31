@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 // 城市下拉URL
 const getDetailCityListApi = '/backend-api/select2/bank/get-city-dropdown-list';
 // 获取公司账号URL

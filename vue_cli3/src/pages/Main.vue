@@ -1,18 +1,16 @@
 <template>
-  <div class="menu-warper">
-    <PageHeader/>
-    <div class="menu-container strickTop">
+  <div :class="$route.meta.footer !== 'hide' ? 'menu-warper' : ''">
+    <PageHeader v-if="$route.meta.header !== 'hide'"/>
+    <div class="menu-container strickTop" v-if="$route.meta.menu !== 'hide'">
       <backend-menu :class="{'backend-menu-box fixTop': isFixed, 'backend-menu-box': !isFixed}" @getHeight="getHeight" ref="backMenu"></backend-menu>
     </div>
     <router-view class="main-center" ref="mainView"/>
-    <CommonDialog></CommonDialog>
-    <PageFooter class="footer"/>
+    <PageFooter class="footer" v-if="$route.meta.footer !== 'hide'"/>
   </div>
 </template>
 <script>
 import {BackendMenu, PageFooter, PageHeader} from '@/components'
-import CommonDialog from '../components/CommonDialog.vue'
-import {CommonMethods} from '../assets/Util'
+import { commonFun } from '../assets/js/utils/utils'
 export default {
   name: 'main-page',
   data () {
@@ -23,11 +21,11 @@ export default {
       msg: ''
     }
   },
-  components: {BackendMenu, PageFooter, PageHeader, CommonDialog},
+  components: {BackendMenu, PageFooter, PageHeader},
   mounted () {
     if (!(CSS.supports('position', 'sticky') || CSS.supports('position', '-webkit-sticky'))) {
       // 支持 sticky
-      window.addEventListener('scroll', CommonMethods.highThottle(this.fixMenu, this, 100, 50))
+      window.addEventListener('scroll', commonFun.highThottle(this.fixMenu, this, 100, 50))
     }
   },
   methods: {

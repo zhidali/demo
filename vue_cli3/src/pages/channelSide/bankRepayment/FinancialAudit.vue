@@ -501,7 +501,7 @@
 </template>
 <script>
     import CheckFile from './components/CheckFile';
-    import storage from '@/utils/dataStorage';
+    import storage from '@/assets/js/utils/dataStorage';
     // 定义远程搜索需要匹配默认值的表单项字段对应关系,统一管理
     // key为下拉项数组  val为数组  第一位为选项id， 第二位为对应文本key
     const oRemote = {

@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios'
+import { axios } from '@/assets/js/http/axios'
 
 const getCitySettingApi =
   '/backend-api/project/bd-spider-config/get-config-detail' // 获取城市配置信息详情

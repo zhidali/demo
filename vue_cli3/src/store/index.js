@@ -4,17 +4,17 @@ import state from './state'
 import mutations from './mutations'
 import actions from './actions'
 import getters from './getters'
-// 引入公共store
-import commonStore from './common/index'
+// 引入找房工具vuex
+import house from '../pages/consultor/house/store/index'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state,
-  mutations,
-  actions,
-  getters,
-  modules: {
-    commonStore
-  }
-})
+	state,
+	mutations,
+	actions,
+	getters,
+	modules: {
+		house
+	}
+});

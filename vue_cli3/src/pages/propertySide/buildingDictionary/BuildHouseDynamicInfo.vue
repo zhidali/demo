@@ -680,7 +680,7 @@
 <script>
 import NumInput from '../../../components/NumberInput';
 import ImgUpload from './components/ImageUpload';
-import { CommonMethods } from "@/assets/Util";
+import { commonFun } from "@/assets/js/utils/utils";
 export default {
     name: 'BuildHouseDynamicInfo',
     components: {
@@ -1018,7 +1018,7 @@ export default {
          * @param {object}} para 埋点拓展字段
          */
         setTrack(trackId, para) {
-            CommonMethods.setTrackMenu(trackId, para);
+            commonFun.setTrackMenu(trackId, para);
         },
         // 是否冲楼盘分级任务详情页跳进来
         isProjectLevelPage() {

@@ -3647,7 +3647,7 @@ import SearchSelect from "./components/SearchSelect";
 import SearchRadioSelect from "./components/SearchRadioSelect";
 import BuildingDictionarySelect from "./components/BuildingDictionarySelect";
 import { MsgDialog } from './components'
-import { CommonMethods } from "@/assets/Util";
+import { commonFun } from "@/assets/js/utils/utils";
 import moment from "moment";
 import merge from "webpack-merge";
 import InputNumber from '../../../components/NumberInput';
@@ -3857,7 +3857,7 @@ export default {
                     topage_id: 'p_project_task'
                 });
             }
-            CommonMethods.setTrackMenu(trackId, para);
+            commonFun.setTrackMenu(trackId, para);
         },
         // 转换为旬
         matchTen(para) {

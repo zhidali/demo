@@ -1775,6 +1775,10 @@
                             id: this.flowId,
                             list: data
                         }
+                        // 如果list无数据则不进行请求
+                        if (params.list.length === 0) {
+                            return;
+                        }
                         this.axios.post('/backend-api/expand/ex-bank-flow/recall-submit', params).then((res) => {
                             if (res.data.code === 0) {
                                 // 将数据加回到需要审核的表格中去  更新历史数据   更改财务审核状态
@@ -1968,6 +1972,10 @@
                     } else if (this.releaseType === '2') {
                         // 批量释放
                         params = this.structureData(2);
+                    }
+                    // 如果list无数据则不进行请求
+                    if (params.list.length === 0) {
+                        return;
                     }
                     // 附件上传改为非必填项后 保存需要调用接口
                     // 如果没有附件，则直接请求后台保存

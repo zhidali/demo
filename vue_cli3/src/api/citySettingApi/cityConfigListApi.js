@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 const getConfigListApi = '/backend-api/project/bd-spider-config/city-config'; // 获取数据列表信息
 const getSoureListApi = '/backend-api/common/source-list'; // 获取竟对源列表信息
 const tapConfimBtnApi = '/backend-api/project/bd-spider-config/batch-inject'; // 批量灌入提交表单

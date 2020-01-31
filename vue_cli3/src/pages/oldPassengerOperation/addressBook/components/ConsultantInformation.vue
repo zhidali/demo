@@ -63,8 +63,8 @@
 import {
     mapState
 } from "vuex";
-import defultImg from '../../../../../static/images/img-user-avatar.png';
-import addressBookListApi from "@/api/addressBooKApi/addressListApi";
+import defultImg from '../../../../assets/images/img-user-avatar.png';
+import addressBookListApi from "../api/addressListApi";
 export default {
     data() {
         return {

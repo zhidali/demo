@@ -1,4 +1,4 @@
-import { axios, instance } from '@/assets/axios';
+import { axios, instance } from '@/assets/js/http/axios';
 const addCopyApi = '/backend-api/project/bd-spider-config/copy-field-constant'; // 添加复制
 const getBrandApi = '/backend-api/common/brand-developer'; // 获取居理品牌开发商列表
 const getBrandEditApi =

@@ -1,4 +1,4 @@
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 // 城市下拉URL
 const getCityListApi = '/backend-api/common/get-city-list';
 // 楼盘名称下拉URL

@@ -163,7 +163,7 @@
             // 获取表单信息
             validForm() {
                 // 判断开始时间小于结束时间
-                if (this.cooperationForm.startTime !== '' && this.cooperationForm.end_time !== '' && new Date(this.cooperationForm.startTime) > new Date(this.cooperationForm.endTime)) {
+                if (this.cooperationForm.startTime && this.cooperationForm.end_time && new Date(this.cooperationForm.startTime) > new Date(this.cooperationForm.endTime)) {
                     this.$message('开始时间不得大于结束时间');
                     return {
                         successful: false,

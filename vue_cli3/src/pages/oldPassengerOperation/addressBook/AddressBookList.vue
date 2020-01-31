@@ -164,7 +164,7 @@
                         <div class="user-avatar">
                             <img
                                 v-if="!editorOrderData.head_img"
-                                src="/static/images/img-user-avatar.png"
+                                src="../../../assets/images/img-user-avatar.png"
                                 alt="微信头像" />
                             <img v-else
                                 :src="editorOrderData.head_img"
@@ -287,7 +287,7 @@
                     <div class="friend-user-info">
                         <div class="user-avatar">
                             <img v-if="!boundData.head_img"
-                            src="/static/images/img-user-avatar.png"
+                            src="../../../assets/images/img-user-avatar.png"
                             alt="微信头像" />
                             <img
                                 v-else
@@ -349,7 +349,7 @@
                         <div class="user-avatar">
                             <img
                                 v-if="!editorGroupData.head_img"
-                                src="/static/images/img-user-avatar.png"
+                                src="../../../assets/images/img-user-avatar.png"
                                 alt="微信头像" />
                             <img
                             v-else
@@ -388,7 +388,7 @@
 import {
     mapState
 } from "vuex";
-import addressBookListApi from "@/api/addressBooKApi/addressListApi";
+import addressBookListApi from "./api/addressListApi";
 import ConsultantInfo from "./components/ConsultantInformation";
 import FriendGroup from "./components/PepoleGroupList";
 import RankList from "./components/RankList";
@@ -883,7 +883,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("./components/style/dialog");
+@import url("./css/dialog");
 
 .address-list-cantainer {
     .el-breadcrumb {

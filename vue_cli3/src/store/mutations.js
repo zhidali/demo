@@ -3,16 +3,20 @@ import {
   GET_EMPLOYEE_NAME,
   GET_UID,
   NET_TIMEOUT,
-  GET_COMMU,
   GET_CITYINFO,
   GET_TRACKMESSAGES,
   GET_ROLE,
-  GET_CITY_LIST,
   GET_BACKEND_API,
-  GET_ARTICLE_INFO
+  GET_ROLE_LIST,
+  GET_ARTICLE_INFO,
+  GET_TRACK_COMMON
 } from './mutation-types'
 
 export default {
+  // 存储埋点地址
+  [GET_TRACK_COMMON](state, {data}) {
+    state.trackCommon = data
+  },
   [GET_TRACK_INFO] (state, {data}) {
     state.trackInfos = data
   },
@@ -21,9 +25,6 @@ export default {
   },
   [GET_UID] (state, data) {
     state.uid = data
-  },
-  [GET_COMMU] (state, data) {
-    state.commuLoc = data
   },
   [NET_TIMEOUT] (state, data) {
     state.netTimeOut = data
@@ -34,17 +35,14 @@ export default {
   [GET_TRACKMESSAGES] (state, data) {
     state.trackMessages = data
   },
-  [GET_CITY_LIST] (state, data) {
-    state.cityList = data
-  },
   [GET_ROLE] (state, data) {
     state.role = data
   },
   [GET_BACKEND_API] (state, data) {
     state.backendApi = data
   },
-  // 更新找房工具文章页楼盘信息
-  [GET_ARTICLE_INFO] (state, data) {
-    state.articleProInfo = data
+  // 更新用户角色列表信息
+  [GET_ROLE_LIST] (state, data) {
+      state.roleList = data
   }
 }

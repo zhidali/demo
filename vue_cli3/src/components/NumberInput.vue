@@ -7,7 +7,11 @@
     reg： 数字匹配规则--int（正整数）、纯数字（number）、两位小数（twoNum）、四位小数（fourNum）
   -->
    <div class="number-input-box">
-     <el-input v-model="model" :placeholder="placeholder" @input.native="oninput($event)"
+     <el-input
+        :maxlength="maxlength"
+        v-model="model"
+        :placeholder="placeholder"
+        @input.native="oninput($event)"
       @blur="onBlur()">
       </el-input>
    </div>
@@ -17,6 +21,11 @@
 export default {
   name: 'number-input',
   props: {
+    // 最多输入个数
+    maxlength: {
+      type: [Number, String],
+      default: 10
+    },
     placeholder: {
       type: String,
       default: ''

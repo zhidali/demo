@@ -91,7 +91,7 @@
   </div>
 </template>
 <script>
-import { CommonMethods } from '@/assets/Util'
+import { commonFun } from '@/assets/js/utils/utils'
 import axios from 'axios'
 export default {
   name: 'BuildingDictionarySelect',
@@ -154,7 +154,7 @@ export default {
     Trim (str) {
       str = str || ''
       str = str + ''
-      str = CommonMethods.trim(str) // 去掉空格
+      str = commonFun.trim(str) // 去掉空格
       str = str.replace(/\b(0+)/gi, '') // 去掉前面0
       if (str) {
         str = parseInt(str)

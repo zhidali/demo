@@ -6,7 +6,7 @@
       <div class="login-box">
         <div class="box-wrap">
           <div class="login-logo">
-            <img src="../../static/images/login_logo.png">
+            <img src="../assets/images/login_logo.png">
           </div>
           <el-form :model="loginForm" status-icon :rules="loginRules" ref="loginForm" label-width="80px"
                    class="demo-ruleForm">
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import {Cookie} from '../assets/Util'
+import {Cookie} from '../assets/js/utils/utils'
 import {PageFooter, SubMenuItem} from '@/components'
 export default {
   name: 'login',

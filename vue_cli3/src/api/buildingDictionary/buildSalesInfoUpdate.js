@@ -4,7 +4,7 @@
  * @Author: xiebin
  * @Date: 2019-11-16
  */
-import { axios } from '@/assets/axios';
+import { axios } from '@/assets/js/http/axios';
 // 城市下拉URL
 const getProjectLevelCityListApi = '/backend-api/project/cj-project-level/city-list';
 
