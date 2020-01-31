@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span class="span">
+
+    </span>
+    <script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+    <script src="./jq.base64.js"></script>
+    <script>
+        // var base64 = $.base64.encode('useId=6789&name=22333测试');
+        // console.log(str);
+        // var s;
+        // s = window.atob(str);
+        // s = $.base64.decode(str);
+
+        // 加密
+        function utf8_to_b64(str) {
+            return window.btoa(unescape(encodeURIComponent(str)))
+        }
+        // 解密
+        function b64_to_utf8(s) {
+            return decodeURIComponent(escape(window.atob(s)))
+        }
+
+        var str1 = utf8_to_b64('useId=6789&name=22333测试');
+
+        // console.log(str1);
+        let jm = b64_to_utf8('dXNlcmlkPTExNDYzMTI1MDc0MzkyNjc4NDEmdXNlcm5hbWU9c3BlZWRwZGbmtYvor5U=');
+        $('.span').html(jm);
+    </script>
+</body>
+
+</html>

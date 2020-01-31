@@ -25,6 +25,16 @@ const getUserInfo: IUserInfoFunc = (user) => {
 	return `name: ${user.name}, age: ${user.age}`;
 };
 
+type TFn = (...arg:any[]) => string;
+
+function getSingle(fn: TFn):Function;
+
+function getSingle( fn ){ 
+	let result; 
+	return function(){ 
+		return result || ( result = fn .apply(this, arguments ) ); 
+	}
+};
 
 interface Iquery {
 	readonly id: number;
