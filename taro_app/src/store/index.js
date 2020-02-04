@@ -1,5 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+// 引入中间件
 import thunkMiddleware from 'redux-thunk'
+import {createLogger} from 'redux-logger'
+
+// 引入根reducers
 import rootReducer from '../reducers'
 
 const composeEnhancers =
@@ -14,7 +18,7 @@ const middlewares = [
 ]
 
 if (process.env.NODE_ENV === 'development' && process.env.TARO_ENV !== 'quickapp') {
-  middlewares.push(require('redux-logger').createLogger())
+  middlewares.push(createLogger())
 }
 
 const enhancer = composeEnhancers(
