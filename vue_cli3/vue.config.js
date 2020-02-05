@@ -61,6 +61,10 @@ module.exports = {
             extensions: ['.js', '.vue', '.json']
         },
         plugins: [
+            new webpack.DllReferencePlugin({
+                context: process.cwd(),
+                manifest: require('./public/vendor/vendor-manifest.json')
+            }),
             // 配置iconfont
             new WebpackIconfontPluginNodejs({
                 fontName: 'icon',
@@ -69,16 +73,12 @@ module.exports = {
                 fontsOutput: path.join(dir, 'fonts/'),
                 cssOutput: path.join(dir, 'fonts/font.css')
             }),
-            new webpack.DllReferencePlugin({
-                // context: process.cwd(),
-                manifest: require('./public/vendor/vendor-manifest.json')
-            }),
             // dll文件位置
             // dll文件位置
             // dll最终输出的目录
             new AddAssetHtmlPlugin({
                 filepath: path.resolve(__dirname, './public/vendor/*.js'),
-                publicPath: './vendor',
+                publicPath: process.env.NODE_ENV == 'production' ? '/dist/vendor': './vendor',
                 outputPath: './vendor'
             })
         ]

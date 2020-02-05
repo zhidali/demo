@@ -1,7 +1,7 @@
 /* eslint-disable */
 const path = require('path')
 const webpack = require('webpack')
-const CleanWebpaclPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // dll文件存放的目录
 const dllPath = 'public/vendor'
@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, dllPath),
-        filename: 'dll.[name].[hash:8].js',
+        filename: '[name].dll.[hash:8].js',  
         // vendor.dll.js中暴露出的全局变量名
         // 保持与 webpack.DllPlugin 中名称一致
         library: '[name]_[hash]'
@@ -26,7 +26,7 @@ module.exports = {
     },
     plugins: [
         // 清除之前的dll文件
-        new CleanWebpaclPlugin({
+        new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
               path.resolve(__dirname, './public/vendor/')
             ]
@@ -41,8 +41,8 @@ module.exports = {
         new webpack.DllPlugin({
             path: path.join(__dirname, dllPath, '[name]-manifest.json'),
             // 保持与 output.library 中名称一致
-            name: '[name]_[hash]'
-            // context: process.cwd()
+            name: '[name]_[hash]',
+            context: process.cwd()
         })
     ]
 }
