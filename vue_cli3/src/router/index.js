@@ -43,9 +43,10 @@ const NoPermissions = () => import('@/pages/NoPermissions')
 
 Vue.use(Router);
 
+
 let router = new Router({
     mode: 'history',
-    base: '/',
+    base: process.env.NODE_ENV == 'production'? '/dist' : '/',
     routes: [{
             path: '/login',
             name: 'login',

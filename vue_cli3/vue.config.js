@@ -5,7 +5,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 // webpack管理iconfont,支持热更新
 const WebpackIconfontPluginNodejs = require('webpack-iconfont-plugin-nodejs')
-const dir = 'static/iconfontNew'
+const dir = 'src/assets/fonts/iconfontNew'
 
 let dataUrlDev = 'http://testbackendapi.comjia.com'
 // let dataUrlDev = 'http://testbackendapi.comjia.com'
@@ -70,15 +70,15 @@ module.exports = {
                 cssOutput: path.join(dir, 'fonts/font.css')
             }),
             new webpack.DllReferencePlugin({
-                context: process.cwd(),
+                // context: process.cwd(),
                 manifest: require('./public/vendor/vendor-manifest.json')
             }),
+            // dll文件位置
+            // dll文件位置
+            // dll最终输出的目录
             new AddAssetHtmlPlugin({
-                // dll文件位置
                 filepath: path.resolve(__dirname, './public/vendor/*.js'),
-                // dll 引用路径
                 publicPath: './vendor',
-                // dll最终输出的目录
                 outputPath: './vendor'
             })
         ]

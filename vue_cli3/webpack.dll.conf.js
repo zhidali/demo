@@ -16,7 +16,7 @@ module.exports = {
         filename: 'dll.[name].[hash:8].js',
         // vendor.dll.js中暴露出的全局变量名
         // 保持与 webpack.DllPlugin 中名称一致
-        library: '_dll_[name]_[hash]'
+        library: '[name]_[hash]'
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -28,7 +28,7 @@ module.exports = {
         // 清除之前的dll文件
         new CleanWebpaclPlugin({
             cleanOnceBeforeBuildPatterns: [
-              path.resolve(__dirname, './public/vendor/*.js')
+              path.resolve(__dirname, './public/vendor/')
             ]
         }), 
         // 设置环境变量
@@ -41,8 +41,8 @@ module.exports = {
         new webpack.DllPlugin({
             path: path.join(__dirname, dllPath, '[name]-manifest.json'),
             // 保持与 output.library 中名称一致
-            name: '_dll_[name]_[hash]',
-            context: process.cwd()
+            name: '[name]_[hash]'
+            // context: process.cwd()
         })
     ]
 }
